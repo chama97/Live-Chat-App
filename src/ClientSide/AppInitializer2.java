@@ -1,4 +1,4 @@
-package ClientSideTwo;
+package ClientSide;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class AppInitializer extends Application {
+public class AppInitializer2 extends Application {
 
     public static void main(String[] args) {
         launch(args);

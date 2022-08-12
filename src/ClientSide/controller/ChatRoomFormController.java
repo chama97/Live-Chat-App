@@ -57,7 +57,7 @@ public class ChatRoomFormController extends Thread {
                 }else if (fullMessage.toString().equalsIgnoreCase("bye")){
                     break;
                 }
-                txtArea.appendText(msg + "\n\n");
+                txtArea.appendText("\n"+ msg + "\n");
             }
             reader.close();
             writer.close();
@@ -71,6 +71,7 @@ public class ChatRoomFormController extends Thread {
 
     public void sendOnAction(ActionEvent actionEvent) {
         String msg = txtMessage.getText().trim();
+        txtArea.setStyle("-fx-color: red;");
         writer.println(LoginFormController.userName + ": "+ msg);
         txtArea.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
         txtMessage.setText("");
