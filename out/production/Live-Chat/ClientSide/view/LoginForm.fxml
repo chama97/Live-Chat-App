@@ -1,14 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="ClientSide.controller.LoginFormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane fx:id="loginFID" prefHeight="840.0" prefWidth="579.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClientSide.controller.LoginFormController">
+   <children>
+      <AnchorPane prefHeight="80.0" prefWidth="579.0" style="-fx-background-color: #156b2c;">
+         <children>
+            <Label layoutX="94.0" layoutY="23.0" text="PLAY TECH pvt ltd" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <FontAwesomeIconView fill="WHITE" glyphName="WEIXIN" layoutX="34.0" layoutY="54.0" size="35" />
+            <FontAwesomeIconView fill="WHITE" glyphName="NAVICON" layoutX="516.0" layoutY="54.0" size="35" />
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="165.0" fitWidth="166.0" layoutX="207.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/icons8_male_user_96px_1.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtLogin" layoutX="107.0" layoutY="467.0" prefHeight="62.0" prefWidth="366.0" promptText="Enter UserName" style="-fx-border-color: green; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-width: 3;">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <JFXButton fx:id="loginButton" buttonType="RAISED" layoutX="203.0" layoutY="610.0" onAction="#loginOnAction" prefHeight="62.0" prefWidth="173.0" ripplerFill="BLACK" style="-fx-background-color: #156b2c; fx-border-color: transparent; -fx-border-color: #fff; -fx-border-width: 3 3 3 3;" text=" LOGIN" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <MaterialDesignIconView fill="WHITE" glyphName="KEY" size="25" />
+         </graphic>
+      </JFXButton>
+      <Label layoutX="114.0" layoutY="455.0" style="-fx-background-color: white;" text=" User Name ">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+   </children>
 </AnchorPane>

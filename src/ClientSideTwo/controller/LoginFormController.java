@@ -1,4 +1,4 @@
-package ClientSide.controller;
+package ClientSideTwo.controller;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
