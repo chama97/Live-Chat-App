@@ -21,6 +21,7 @@ import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.Socket;
+import java.util.Observer;
 
 public class ChatRoomFormController extends Thread{
     public AnchorPane chatFID;
@@ -70,6 +71,21 @@ public class ChatRoomFormController extends Thread{
                     break;
                 }
                 txtArea.appendText("\n"+ msg + "\n");
+
+//                st = st.substring(3, st.length() - 1);
+//
+//
+//                File file = new File(st);
+//                Image image = new Image(file.toURI().toString());
+//
+//                ImageView imageView = new ImageView(image);
+//
+//                imageView.setFitHeight(150);
+//                imageView.setFitWidth(200);
+//
+//
+//                HBox hBox = new HBox(10);
+//                hBox.setAlignment(Pos.BOTTOM_RIGHT);
             }
             reader.close();
             writer.close();
@@ -86,7 +102,35 @@ public class ChatRoomFormController extends Thread{
 
     }
 
-   
+    public void fileChooseOnAction(ActionEvent actionEvent) {
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        fileChooser = new FileChooser();
+        fileChooser.setTitle("Open Image");
+        filePath = fileChooser.showOpenDialog(stage);
+        saveControl = true;
+
+        saveImage();
+    }
+
+    public void saveImage() {
+        if (saveControl) {
+            try {
+                BufferedImage bufferedImage = ImageIO.read(filePath);
+//                Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+                Image image = new Image(filePath.toURI().toString());
+                ImageIO.write(bufferedImage,"png" , filePath);
+                ImageView imageView = new ImageView();
+                imageView.setImage(image);
+                imageView.setFitHeight(30);
+                imageView.setFitWidth(30);
+                saveControl = false;
+                writer.println(LoginFormController.userName + ": " + imageView.getImage());
+                txtArea.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
+            } catch (IOException exception) {
+                exception.printStackTrace();
+            }
+        }
+    }
 
     public void sendOnAction(MouseEvent mouseEvent) {
         String msg = txtMessage.getText().trim();
@@ -108,6 +152,5 @@ public class ChatRoomFormController extends Thread{
         writer.println(LoginFormController.userName + ": "+ imageView.getImage());
         txtArea.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
     }
-
 
 }
