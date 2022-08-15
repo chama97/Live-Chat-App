@@ -5,7 +5,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 
-public class Server {
+public class ServerInitializer {
 
     private static Socket socket;
     private static ServerSocket serverSocket;

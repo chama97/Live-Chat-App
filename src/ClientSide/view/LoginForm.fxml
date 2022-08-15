@@ -34,7 +34,7 @@
             <Font size="20.0" />
          </font>
       </TextField>
-      <JFXButton fx:id="loginButton" buttonType="RAISED" layoutX="203.0" layoutY="610.0" onAction="#loginOnAction" prefHeight="62.0" prefWidth="173.0" ripplerFill="BLACK" style="-fx-background-color: #156b2c; fx-border-color: transparent; -fx-border-color: #fff; -fx-border-width: 3 3 3 3;" text=" LOGIN" textAlignment="CENTER" textFill="WHITE">
+      <JFXButton fx:id="loginButton" buttonType="RAISED" layoutX="203.0" layoutY="610.0" onAction="#loginOnAction" prefHeight="62.0" prefWidth="173.0" ripplerFill="BLACK" style="-fx-background-color: #156b2c; fx-border-color: transparent; -fx-border-color: #fff; -fx-border-width: 3 3 3 3; -fx-cursor: hand;" text=" LOGIN" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>

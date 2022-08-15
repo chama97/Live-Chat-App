@@ -1,20 +1,28 @@
 package ClientSide.controller;
 
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.geometry.NodeOrientation;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.TextFlow;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.*;
 import java.net.Socket;
 
-public class ChatRoomFormController extends Thread {
+public class ChatRoomFormController extends Thread{
     public AnchorPane chatFID;
     public Label txtUserName;
     public TextArea txtArea;
@@ -23,6 +31,10 @@ public class ChatRoomFormController extends Thread {
     public BufferedReader reader;
     public PrintWriter writer;
     public Socket socket;
+    public ImageView emoji;
+
+    private FileChooser fileChooser;
+    private File filePath;
 
     public void initialize(){
         System.out.println("Initialized method" +LoginFormController.userName);
@@ -68,10 +80,17 @@ public class ChatRoomFormController extends Thread {
         }
     }
 
+    public boolean saveControl = false;
 
-    public void sendOnAction(ActionEvent actionEvent) {
+    public void imageOnAction(MouseEvent mouseEvent) {
+
+    }
+
+   
+
+    public void sendOnAction(MouseEvent mouseEvent) {
         String msg = txtMessage.getText().trim();
-        txtArea.setStyle("-fx-color: red;");
+        //txtUserName.setStyle(String.valueOf(Color.RED));
         writer.println(LoginFormController.userName + ": "+ msg);
         txtArea.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
         txtMessage.setText("");
@@ -80,6 +99,15 @@ public class ChatRoomFormController extends Thread {
         }
     }
 
-    public void imageOnAction(MouseEvent mouseEvent) {
+    public void emojiSendOnClick(MouseEvent mouseEvent) {
+        Image image = emoji.getImage();
+        ImageView imageView = new ImageView();
+        imageView.setImage(image);
+        imageView.setFitHeight(25);
+        imageView.setFitWidth(25);
+        writer.println(LoginFormController.userName + ": "+ imageView.getImage());
+        txtArea.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
     }
+
+
 }
