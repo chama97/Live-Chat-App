@@ -12,6 +12,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.TextFlow;
 import javafx.stage.FileChooser;
@@ -33,11 +34,13 @@ public class ChatRoomFormController extends Thread{
     public PrintWriter writer;
     public Socket socket;
     public ImageView emoji;
+    public HBox emojiView;
 
     private FileChooser fileChooser;
     private File filePath;
 
     public void initialize(){
+        emojiView.setVisible(false);
         System.out.println("Initialized method" +LoginFormController.userName);
         txtUserName.setText(LoginFormController.userName);
         try{
@@ -98,12 +101,8 @@ public class ChatRoomFormController extends Thread{
 
     public boolean saveControl = false;
 
-    public void imageOnAction(MouseEvent mouseEvent) {
-
-    }
-
-    public void fileChooseOnAction(ActionEvent actionEvent) {
-        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+    public void fileChooseOnAction(MouseEvent mouseEvent) {
+        Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
         fileChooser = new FileChooser();
         fileChooser.setTitle("Open Image");
         filePath = fileChooser.showOpenDialog(stage);
@@ -143,14 +142,51 @@ public class ChatRoomFormController extends Thread{
         }
     }
 
-    public void emojiSendOnClick(MouseEvent mouseEvent) {
-        Image image = emoji.getImage();
-        ImageView imageView = new ImageView();
-        imageView.setImage(image);
-        imageView.setFitHeight(25);
-        imageView.setFitWidth(25);
-        writer.println(LoginFormController.userName + ": "+ imageView.getImage());
-        txtArea.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
+
+//    public void emojiSendOnClick(MouseEvent mouseEvent) {
+//        Image image = emoji.getImage();
+//        ImageView imageView = new ImageView();
+//        imageView.setImage(image);
+//        imageView.setFitHeight(25);
+//        imageView.setFitWidth(25);
+//        writer.println(LoginFormController.userName + ": "+ imageView.getImage());
+//        txtArea.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
+//    }
+
+    public void emojiOnClick(MouseEvent mouseEvent) {
+        if(!emojiView.isVisible()){
+            emojiView.setVisible(true);
+        }else {
+            emojiView.setVisible(false);
+        }
+    }
+
+    public void thumbUpOnClick(MouseEvent mouseEvent) {
+        txtMessage.appendText("\ud83d\udc4d");
+    }
+
+    public void thumbDownOnClick(MouseEvent mouseEvent) {
+        txtMessage.appendText("\ud83d\udc4e");
+    }
+
+    public void okHandOnClick(MouseEvent mouseEvent) {
+        txtMessage.appendText("\ud83d\udc4c");
+    }
+
+    public void smileOnClick(MouseEvent mouseEvent) {
+        txtMessage.appendText("\ud83d\ude02");
+    }
+
+    public void sadOnClick(MouseEvent mouseEvent) {
+        txtMessage.appendText("\ud83d\ude14");
+    }
+
+    public void angryOnClick(MouseEvent mouseEvent) {
+        txtMessage.appendText("\ud83d\ude21");
+    }
+
+    public void heartOnClick(MouseEvent mouseEvent) {
+        txtMessage.appendText("\ud83d\ude0d");
     }
 
 }

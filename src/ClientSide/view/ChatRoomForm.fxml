@@ -2,7 +2,6 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -44,45 +43,45 @@
             <Font size="17.0" />
          </font>
       </TextField>
-      <FontAwesomeIconView fill="#2b6124" glyphName="CAMERA" layoutX="429.0" layoutY="804.0" onDragDetected="#imageOnAction" size="30" style="-fx-cursor: hand;" />
-      <HBox layoutX="16.0" layoutY="693.0" prefHeight="42.0" prefWidth="547.0" spacing="19.0" style="-fx-border-color: #d7d7d7;">
+      <FontAwesomeIconView fill="#2b6124" glyphName="CAMERA" layoutX="434.0" layoutY="804.0" onMouseClicked="#fileChooseOnAction" size="30" style="-fx-cursor: hand;" />
+      <HBox fx:id="emojiView" layoutX="16.0" layoutY="693.0" prefHeight="42.0" prefWidth="547.0" spacing="19.0" style="-fx-border-color: #d7d7d7;">
          <children>
-            <ImageView fx:id="emoji" fitHeight="52.0" fitWidth="59.0" onMouseClicked="#emojiSendOnClick" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+            <ImageView fx:id="emoji" fitHeight="52.0" fitWidth="59.0" onMouseClicked="#thumbUpOnClick" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
                <image>
                   <Image url="@../assets/icons8_thumbs_up_96px.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="52.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+            <ImageView fitHeight="52.0" fitWidth="59.0" onMouseClicked="#thumbDownOnClick" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
                <image>
                   <Image url="@../assets/icons8_thumbs_down_96px.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="52.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+            <ImageView fitHeight="52.0" fitWidth="59.0" onMouseClicked="#okHandOnClick" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
                <image>
                   <Image url="@../assets/icons8_ok_hand_emoji_96px.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="52.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+            <ImageView fitHeight="52.0" fitWidth="59.0" onMouseClicked="#smileOnClick" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
                <image>
                   <Image url="@../assets/icons8_grinning_squinting_face_96px.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="52.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+            <ImageView fitHeight="52.0" fitWidth="59.0" onMouseClicked="#sadOnClick" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
                <image>
                   <Image url="@../assets/icons8_pensive_face_96px.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="52.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+            <ImageView fitHeight="52.0" fitWidth="59.0" onMouseClicked="#angryOnClick" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
                <image>
                   <Image url="@../assets/icons8_pouting_face_96px.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="52.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+            <ImageView fitHeight="52.0" fitWidth="59.0" onMouseClicked="#heartOnClick" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
                <image>
                   <Image url="@../assets/icons8_smiling_face_with_hearts_96px.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="52.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
+            <ImageView fitHeight="52.0" fitWidth="59.0" onMouseClicked="#sadOnClick" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: hand;">
                <image>
                   <Image url="@../assets/icons8_slightly_smiling_face_96px.png" />
                </image>
@@ -97,6 +96,6 @@
             <Image url="@../assets/icons8_sent_48px_1.png" />
          </image>
       </ImageView>
-      <Button layoutX="350.0" layoutY="779.0" mnemonicParsing="false" onAction="#fileChooseOnAction" text="Button" />
+      <FontAwesomeIconView fill="#2b6124" glyphName="SMILE_ALT" layoutX="388.0" layoutY="806.0" onMouseClicked="#emojiOnClick" size="35" style="-fx-cursor: hand;" />
    </children>
 </AnchorPane>
